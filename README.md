@@ -2,57 +2,23 @@
 
 <br><br><br><br>
 
-# pix2pixHD
-### [Project](https://tcwang0509.github.io/pix2pixHD/) | [Youtube](https://youtu.be/3AIpPlzM_qs) | [Paper](https://arxiv.org/pdf/1711.11585.pdf) <br>
-Pytorch implementation of our method for high-resolution (e.g. 2048x1024) photorealistic image-to-image translation. It can be used for turning semantic label maps into photo-realistic images or synthesizing portraits from face label maps. <br><br>
-[High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs](https://tcwang0509.github.io/pix2pixHD/)  
- [Ting-Chun Wang](https://tcwang0509.github.io/)<sup>1</sup>, [Ming-Yu Liu](http://mingyuliu.net/)<sup>1</sup>, [Jun-Yan Zhu](http://people.eecs.berkeley.edu/~junyanz/)<sup>2</sup>, Andrew Tao<sup>1</sup>, [Jan Kautz](http://jankautz.com/)<sup>1</sup>, [Bryan Catanzaro](http://catanzaro.name/)<sup>1</sup>  
- <sup>1</sup>NVIDIA Corporation, <sup>2</sup>UC Berkeley  
- In CVPR 2018.  
+# pix2pixHD 
 
-## Image-to-image translation at 2k/1k resolution
-- Our label-to-streetview results
-<p align='center'>  
-  <img src='imgs/teaser_label.png' width='440'/>
-  <img src='imgs/teaser_ours.jpg' width='440'/>
-</p>
-- Interactive editing results
-<p align='center'>  
-  <img src='imgs/teaser_style.gif' width='440'/>
-  <img src='imgs/teaser_label.gif' width='440'/>
-</p>
-- Additional streetview results
-<p align='center'>
-  <img src='imgs/cityscapes_1.jpg' width='440'/>
-  <img src='imgs/cityscapes_2.jpg' width='440'/>
-</p>
-<p align='center'>
-  <img src='imgs/cityscapes_3.jpg' width='440'/>
-  <img src='imgs/cityscapes_4.jpg' width='440'/>
-</p>
+<br>
+This is not all our work, this work is forked from JC Testud [Repository](https://github.com/jctestud/pix2pixHD.git) and this project is heavily based of his medium article [Video Generation With pix2pix](https://medium.com/@jctestud/video-generation-with-pix2pix-aed5b1b69f57) , check it and give it like. 
+<br>
 
-- Label-to-face and interactive editing results
-<p align='center'>
-  <img src='imgs/face1_1.jpg' width='290'/>
-  <img src='imgs/face1_2.jpg' width='290'/>
-  <img src='imgs/face1_3.jpg' width='290'/>
-</p>
-<p align='center'>
-  <img src='imgs/face2_1.jpg' width='290'/>
-  <img src='imgs/face2_2.jpg' width='290'/>
-  <img src='imgs/face2_3.jpg' width='290'/>
-</p>
+The core archetecture and code comes from NVIDIA's paper that introduced the pix2pix framework. See [NVIDIA repo](https://tcwang0509.github.io/pix2pixHD/) | [Youtube](https://youtu.be/3AIpPlzM_qs) | [Paper](https://arxiv.org/pdf/1711.11585.pdf) <br>
 
-- Our editing interface
-<p align='center'>
-  <img src='imgs/city_short.gif' width='380'/>
-  <img src='imgs/face_short.gif' width='490'/>
-</p>
 
 ## Prerequisites
+To run natively:
 - Linux or macOS
 - Python 2 or 3
 - NVIDIA GPU (12G or 24G memory) + CUDA cuDNN
+<br> 
+#### Or If your like me and dont have a GPU: <br>
+- Google Cloud Account
 
 ## Getting Started
 ### Installation
