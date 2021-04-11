@@ -2,13 +2,9 @@
 
 <br><br><br><br>
 
-# pix2pixHD 
-
-<br>
-This is not all our work, this work is forked from JC Testud [Repository](https://github.com/jctestud/pix2pixHD.git) and this project is heavily based of his medium article [Video Generation With pix2pix](https://medium.com/@jctestud/video-generation-with-pix2pix-aed5b1b69f57) , check it and give it like. 
-<br>
-
-The core archetecture and code comes from NVIDIA's paper that introduced the pix2pix framework. See [NVIDIA repo](https://tcwang0509.github.io/pix2pixHD/) | [Youtube](https://youtu.be/3AIpPlzM_qs) | [Paper](https://arxiv.org/pdf/1711.11585.pdf) <br>
+# pix2pixHD for video generation of Jellyfish
+### Kyle Barone | Diana Kim | Cathryn Gold | Ethan Yu
+This is our project for VIP team Art & AI focused on using artifical intelligence to explore the creative works. We use the pix2pix framework to train a conditional GAN network to generate video. The pix2pix framework is generative network that can be trained to learn an image to image translation. This has been used to create cool applications such as [edges to cat](https://affinelayer.com/pix2pix/) and others. We are applying this archetecture by seperating training videos into image frames, then training the network to predict the *t+1* frame given the *t*th frame. This way we are attempting to create a mapping from for the next frame of a video. As a result we have found that videos that are reptitive or repeat simple pattern or action multiple times over perform better. The generation capabilities of this network is very shallow in the sense that it is trained on a single video and tries to generate a plausible replica of the video. 
 
 
 ## Prerequisites
@@ -20,9 +16,9 @@ To run natively:
 #### Or If your like me and dont have a GPU: <br>
 - Google Cloud Account
 
-## Getting Started
+## Getting Started (since no one in our group has a GPU setup, this guide is through using a GCP instance.
 ### Installation
-- Install PyTorch and dependencies from http://pytorch.org
+- Search 
 - Install python libraries [dominate](https://github.com/Knio/dominate).
 ```bash
 pip install dominate
@@ -99,3 +95,7 @@ If you find this useful for your research, please use the following.
 
 ## Acknowledgments
 This code borrows heavily from [pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix).
+<br>
+This is not all our work, this work is forked from JC Testud [Repository](https://github.com/jctestud/pix2pixHD.git) and this project is heavily based of his medium article [Video Generation With pix2pix](https://medium.com/@jctestud/video-generation-with-pix2pix-aed5b1b69f57) , check it and give it like. 
+<br>
+The core archetecture and code comes from NVIDIA's paper that introduced the pix2pix framework. See [NVIDIA repo](https://tcwang0509.github.io/pix2pixHD/) | [Youtube](https://youtu.be/3AIpPlzM_qs) | [Paper](https://arxiv.org/pdf/1711.11585.pdf) <br>
