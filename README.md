@@ -12,7 +12,7 @@ To run natively:
 - Python 2 or 3
 - NVIDIA GPU (12G or 24G memory) + CUDA cuDNN
 <br> 
-#### Or If your like me and dont have a GPU: <br>
+**Or If your like me and dont have a GPU:** <br>
 - Google Cloud Account
 
 ## Getting Started (since no one in our group has a GPU setup, this guide is through using a GCP instance.
