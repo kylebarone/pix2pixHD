@@ -14,6 +14,7 @@ Doing:
   
   
 Ideas to explore:
-- given the current steps I am using via gcp instance (same as on readme) I am not sure I am fully utilizing the gpu but instead think I might be running the program on the vm's cpu which is why training takes so long - Kyle
+- given the current steps via gcp instance (same as on readme) I am not sure I am fully utilizing the gpu but instead am wondering if I might be running the program on the vm's cpu which is why training takes so long. Look into adding GPU metrics for instance to check this
+- a project from last year looked into image to image translation and this is similar to the archetecture ours is based on https://airtable.com/shr5gQr1W69EBwDhk/tblKH9mD7hHIMxGJ7/viwyeojg3lqvyhqCl/recSAHvjHxQi1EroT
 
 
