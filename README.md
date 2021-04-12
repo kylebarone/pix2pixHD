@@ -36,7 +36,7 @@ cd pix2pixHD
 
 ### Dataset
 - Train the algorithim on a specific video so acquire an mp4 video your hoping to train, longer videos take much longer to train so I've been so far expierementing with 20-60second videos. 
-- So all our work stays together, create a directory in [source-videos-nextFramePred](https://github.com/kylebarone/source-videos-nextFramePred) and add the following to the directory: source video, textfile with video details (length & resolution), any generated videos, and checkpoints/<project>/loss_log.txt
+- So all our work stays together, create a directory in [source-videos-nextFramePred](https://github.com/kylebarone/source-videos-nextFramePred) and add the following to the directory: source video, textfile with video details (length & resolution), any generated videos, and `checkpoints/<project>/loss_log.txt`
 - Create dataset from videos with the following command. For resolution use the closest number divisible by 32. 
 ```bash
 python3 extract_frames.py -video ~/source-videos-nextFramePred/<video_dir>/<vid_name>.mp4 -name jellyfish_dataset -p2pdir . -width 1280 -height 736
@@ -64,7 +64,7 @@ python3 generate_progress_video.py --name <project_name> --dataroot ./datasets/j
 
 ### Group Colloborative Structure
 - Code changes (if any) go to pix2pixHD git.
-- Do not upload checkpoints/ to git cause it tends to be super big, if you wanna save model data (checkpoints/) then I suggest saving it to a gcp sotrage bucket.
+- Do not upload checkpoints/ to git cause it tends to be super big, if you wanna save model data (`checkpoints/`) then I suggest saving it to a gcp sotrage bucket.
 - Upload source video, textfile with video details (length & resolution), any generated videos, and loss data (checkpoints/<project>/loss_log.txt) to [source-videos-nextFramePred](https://github.com/kylebarone/source-videos-nextFramePred).
       - Persoanlly I have been just uploading all of checkpoints/<project> to gcp storage then download those specific files to local then git from there.
 
