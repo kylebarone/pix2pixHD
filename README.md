@@ -11,34 +11,35 @@ To run natively:
 - Linux or macOS
 - Python 2 or 3
 - NVIDIA GPU (12G or 24G memory) + CUDA cuDNN
-<br> 
-**Or If your like me and dont have a GPU:** <br>
-- Google Cloud Account
+- **Or** Google Cloud Account
 
 ## Getting Started (since no one in our group has a GPU setup, this guide is through using a GCP instance.
-### Setting up GCP Instance (First time)
+### Setting up & Launching GCP Instance (First time)
 - Create a google cloud  platform account and download [Google Cloud SDK](https://cloud.google.com/sdk/docs/install). You get 300$ of free compute credits. 
 - Search for the "Deep Learning VM" and click launch. The settings I have been using is 2-vCPUs and 1 GPU NVIDIA Tesla T4 on the us-east1-d zone but I think this can vary, I chose T4 based on the low price per hour. Change the framework to PyTorch 1.8 + fast.ai 2.1 (CUDA 11.0). Check the box "Install NVIDIA GPU driver automatically on first startup?" and deploy.
 - The first time GCP has a quota on GPU usage so you must upgrade your account, this is still free and uses free credits just means you'll have to pay if you run over. Next click the quotas page on the quota warning on the top of the page. Click the compute engine api -> Edit quotas -> Global. Now you can request the use for GPUs (I chose 2). Mine was approved imediately. 
 - Now you can deploy an instance and click on SSH to open the command for the instance. 
       -(If you get a ResourceType Error try a different region)
       
+### Installation
 - Install python libraries [dominate](https://github.com/Knio/dominate).
 ```bash
 pip install dominate
 ```
-- Clone this repo:
+- Clone this repo and the source video repo:
 ```bash
-git clone https://github.com/kylebarone/pix2pixHD
+git clone -b video https://github.com/kylebarone/pix2pixHD
+git clone https://github.com/kylebarone/source-videos-nextFramePred.git
 cd pix2pixHD
 ```
 
 
 ### Dataset
 - Train the algorithim on a specific video so acquire an mp4 video your hoping to train, longer videos take much longer to train so I've been so far expierementing with 20-60second videos. 
+- So all our work stays together, create a directory in [source-videos-nextFramePred](https://github.com/kylebarone/source-videos-nextFramePred) and add the following to the directory: source video, textfile with video details (length & resolution), any generated videos, and checkpoints/<project>/loss_log.txt
 - Create dataset from videos with the following command. For resolution use the closest number divisible by 32. 
 ```bash
-python3 extract_frames.py -video <video_path> -name jellyfish_dataset -p2pdir . -width 1280 -height 736
+python3 extract_frames.py -video ~/source-videos-nextFramePred/<video_dir>/<vid_name>.mp4 -name jellyfish_dataset -p2pdir . -width 1280 -height 736
 ```
 
 
@@ -61,8 +62,11 @@ python3 generate_video.py --name fire_project --dataroot ./datasets/jellyfish_da
 python3 generate_progress_video.py --name <project_name> --dataroot ./datasets/jellyfish_dataset/ --fps 24 --ngf 32 --pstart 1 --pstop 47
 ```
 
-### For our groups' use
-- Any code changes are to the git however all models, outputs, and logs (basically everything in the checkpoint folder) should be upaoded to the GCP storage bucket (still in progress of setting up for all of us). 
+### Group Colloborative Structure
+- Code changes (if any) go to pix2pixHD git.
+- Do not upload checkpoints/ to git cause it tends to be super big, if you wanna save model data (checkpoints/) then I suggest saving it to a gcp sotrage bucket.
+- Upload source video, textfile with video details (length & resolution), any generated videos, and loss data (checkpoints/<project>/loss_log.txt) to [source-videos-nextFramePred](https://github.com/kylebarone/source-videos-nextFramePred).
+      - Persoanlly I have been just uploading all of checkpoints/<project> to gcp storage then download those specific files to local then git from there.
 
 ## More Training/Test Details
 - Flags: see `options/train_options.py` and `options/base_options.py` for all the training flags; see `options/test_options.py` and `options/base_options.py` for all the test flags.
