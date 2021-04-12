@@ -6,6 +6,7 @@
 ### Kyle Barone | Diana Kim | Cathryn Gold | Ethan Yu
 This is our project for VIP team Art & AI focused on using artifical intelligence to explore the creative works. We use the pix2pix framework to train a conditional GAN network to generate video. The pix2pix framework is generative network that can be trained to learn an image to image translation. This has been used to create cool applications such as [edges to cat](https://affinelayer.com/pix2pix/) and others. We are applying this archetecture by seperating training videos into image frames, then training the network to predict the *t+1* frame given the *t*th frame. This way we are attempting to create a mapping from for the next frame of a video. As a result we have found that videos that are reptitive or repeat simple pattern or action multiple times over perform better. The generation capabilities of this network is very shallow in the sense that it is trained on a single video and tries to generate a plausible replica of the video. 
 
+## Switch to [video](https://github.com/kylebarone/pix2pixHD/tree/video) branch!!!!!!!!!
 
 ## Prerequisites
 To run natively:
