@@ -1,37 +1,70 @@
 <img src='imgs/teaser_720.gif' align="right" width=360>
 
 <br><br><br><br>
+# Switch to Video Branch for our project
 
-# pix2pixHD for video generation of Jellyfish
-### Kyle Barone | Diana Kim | Cathryn Gold | Ethan Yu
-This is our project for VIP team Art & AI focused on using artifical intelligence to explore the creative works. We use the pix2pix framework to train a conditional GAN network to generate video. The pix2pix framework is generative network that can be trained to learn an image to image translation. This has been used to create cool applications such as [edges to cat](https://affinelayer.com/pix2pix/) and others. We are applying this archetecture by seperating training videos into image frames, then training the network to predict the *t+1* frame given the *t*th frame. This way we are attempting to create a mapping from for the next frame of a video. As a result we have found that videos that are reptitive or repeat simple pattern or action multiple times over perform better. The generation capabilities of this network is very shallow in the sense that it is trained on a single video and tries to generate a plausible replica of the video. 
+# pix2pixHD
+### [Project](https://tcwang0509.github.io/pix2pixHD/) | [Youtube](https://youtu.be/3AIpPlzM_qs) | [Paper](https://arxiv.org/pdf/1711.11585.pdf) <br>
+Pytorch implementation of our method for high-resolution (e.g. 2048x1024) photorealistic image-to-image translation. It can be used for turning semantic label maps into photo-realistic images or synthesizing portraits from face label maps. <br><br>
+[High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs](https://tcwang0509.github.io/pix2pixHD/)  
+ [Ting-Chun Wang](https://tcwang0509.github.io/)<sup>1</sup>, [Ming-Yu Liu](http://mingyuliu.net/)<sup>1</sup>, [Jun-Yan Zhu](http://people.eecs.berkeley.edu/~junyanz/)<sup>2</sup>, Andrew Tao<sup>1</sup>, [Jan Kautz](http://jankautz.com/)<sup>1</sup>, [Bryan Catanzaro](http://catanzaro.name/)<sup>1</sup>  
+ <sup>1</sup>NVIDIA Corporation, <sup>2</sup>UC Berkeley  
+ In CVPR 2018.  
 
-## Switch to [video](https://github.com/kylebarone/pix2pixHD/tree/video) branch!!!!!!!!!
+## Image-to-image translation at 2k/1k resolution
+- Our label-to-streetview results
+<p align='center'>  
+  <img src='imgs/teaser_label.png' width='440'/>
+  <img src='imgs/teaser_ours.jpg' width='440'/>
+</p>
+- Interactive editing results
+<p align='center'>  
+  <img src='imgs/teaser_style.gif' width='440'/>
+  <img src='imgs/teaser_label.gif' width='440'/>
+</p>
+- Additional streetview results
+<p align='center'>
+  <img src='imgs/cityscapes_1.jpg' width='440'/>
+  <img src='imgs/cityscapes_2.jpg' width='440'/>
+</p>
+<p align='center'>
+  <img src='imgs/cityscapes_3.jpg' width='440'/>
+  <img src='imgs/cityscapes_4.jpg' width='440'/>
+</p>
+
+- Label-to-face and interactive editing results
+<p align='center'>
+  <img src='imgs/face1_1.jpg' width='290'/>
+  <img src='imgs/face1_2.jpg' width='290'/>
+  <img src='imgs/face1_3.jpg' width='290'/>
+</p>
+<p align='center'>
+  <img src='imgs/face2_1.jpg' width='290'/>
+  <img src='imgs/face2_2.jpg' width='290'/>
+  <img src='imgs/face2_3.jpg' width='290'/>
+</p>
+
+- Our editing interface
+<p align='center'>
+  <img src='imgs/city_short.gif' width='380'/>
+  <img src='imgs/face_short.gif' width='490'/>
+</p>
 
 ## Prerequisites
-To run natively:
 - Linux or macOS
 - Python 2 or 3
 - NVIDIA GPU (12G or 24G memory) + CUDA cuDNN
-<br> 
-#### Or If your like me and dont have a GPU: <br>
-- Google Cloud Account
 
-## Getting Started (since no one in our group has a GPU setup, this guide is through using a GCP instance.
-### Setting up GCP Instance (First time)
-- Create a google cloud  platform account and download [Google Cloud SDK](https://cloud.google.com/sdk/docs/install). You get 300$ of free compute credits. 
-- Search for the deep learning vm and click launch. The settings I have been using is 2-vCPUs and 1 GPU NVIDIA Tesla T4 on the us-east1-d zone but I think this can vary, I chose T4 based on the low price per hour. Change the framework to PyTorch 1.8 + fast.ai 2.1 (CUDA 11.0). Check the box "Install NVIDIA GPU driver automatically on first startup?" and deploy.
-- The first time GCP has a quota on GPU usage so you must upgrade your account, this is still free and uses free credits just means you'll have to pay if you run over. Next click the quotas page on the quota warning on the top of the page. Click the compute engine api -> Edit quotas -> Global. Now you can request the use for GPUs (I chose 2). Mine was approved imediately. 
-- Now you can deploy an instance and click on SSH to open the command for the instance. 
-      -(If you get a ResourceType Error try a different region)
-      
+## Getting Started
+### Installation
+- Install PyTorch and dependencies from http://pytorch.org
 - Install python libraries [dominate](https://github.com/Knio/dominate).
 ```bash
 pip install dominate
 ```
 - Clone this repo:
 ```bash
-git clone https://github.com/kylebarone/pix2pixHD
+git clone https://github.com/NVIDIA/pix2pixHD
 cd pix2pixHD
 ```
 
@@ -101,7 +134,3 @@ If you find this useful for your research, please use the following.
 
 ## Acknowledgments
 This code borrows heavily from [pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix).
-<br>
-This is not all our work, this work is forked from JC Testud [Repository](https://github.com/jctestud/pix2pixHD.git) and this project is heavily based of his medium article [Video Generation With pix2pix](https://medium.com/@jctestud/video-generation-with-pix2pix-aed5b1b69f57) , check it and give it like. 
-<br>
-The core archetecture and code comes from NVIDIA's paper that introduced the pix2pix framework. See [NVIDIA repo](https://tcwang0509.github.io/pix2pixHD/) | [Youtube](https://youtu.be/3AIpPlzM_qs) | [Paper](https://arxiv.org/pdf/1711.11585.pdf) <br>
