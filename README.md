@@ -51,6 +51,8 @@ python3 train_video.py --name <project_name> --dataroot ./datasets/jellyfish_dat
 - To view training loss data, please checkout intermediate results in `./checkpoints/<project_name>/loss_log.txt`.
 If you have tensorflow installed, you can see tensorboard logs in `./checkpoints/<project_name>/logs` by adding `--tf_log` to the training scripts.
 
+- If the training halts for some reason, you can pick up previous training from where you left off by adding the `--continue_train` flag to the end of the train command
+
 
 ### Video Generation
 - To generate a video use the following commands
