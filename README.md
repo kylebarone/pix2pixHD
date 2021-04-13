@@ -17,7 +17,7 @@ To run natively:
 ### Setting up & Launching GCP Instance (First time)
 - Create a google cloud  platform account and download [Google Cloud SDK](https://cloud.google.com/sdk/docs/install). You get 300$ of free compute credits. 
 - Search for the "Deep Learning VM" and click launch. The settings I have been using is 2-vCPUs and 1 GPU NVIDIA Tesla T4 on the us-east1-d zone but I think this can vary, I chose T4 based on the low price per hour. Change the framework to PyTorch 1.8 + fast.ai 2.1 (CUDA 11.0). Check the box "Install NVIDIA GPU driver automatically on first startup?" and deploy.
-- The first time GCP has a quota on GPU usage so you must upgrade your account, this is still free and uses free credits just means you'll have to pay if you run over. Next click the quotas page on the quota warning on the top of the page. Click the compute engine api -> Edit quotas -> Global. Now you can request the use for GPUs (I chose 2). Mine was approved imediately. 
+- The first time GCP has a quota on GPU usage so you must upgrade your account, this is still free and uses free credits just means you'll have to pay if you run over. Next click the quotas page on the quota warning on the top of the page. Click the compute engine api -> Edit quotas -> Global. Now you can request the use for GPUs (I chose 1). Mine was approved imediately. 
 - Now you can deploy an instance and click on SSH to open the command for the instance. 
       -(If you get a ResourceType Error try a different region)
       
