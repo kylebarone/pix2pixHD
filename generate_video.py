@@ -104,7 +104,7 @@ video_utils.video_from_frame_directory(
     frame_dir, 
     video_path, 
     framerate=opt.fps, 
-    crop_to_720p=True,
+    crop_to_720p=opt.crop_720,
     reverse=False
 )
 
