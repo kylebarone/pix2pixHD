@@ -3,6 +3,9 @@
 from .base_options import BaseOptions
 
 class TestOptions(BaseOptions):
+    def crop_bool(s):
+        return s != "False"
+    
     def initialize(self):
         BaseOptions.initialize(self)
         self.parser.add_argument('--ntest', type=int, default=float("inf"), help='# of test examples.')
@@ -18,6 +21,3 @@ class TestOptions(BaseOptions):
         self.parser.add_argument("--onnx", type=str, help="run ONNX model via TRT")
         self.parser.add_argument("--crop_720", type=crop_bool, default=True, help="whether output video_frames are cropped to 720, matters when have a video smaller than 1280x720")       
         self.isTrain = False
-
-    def crop_bool(s):
-        return s != "False"
