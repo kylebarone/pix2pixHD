@@ -3,8 +3,6 @@
 from .base_options import BaseOptions
 
 class TestOptions(BaseOptions):
-    def crop_bool(s):
-        return s != "False"
     
     def initialize(self):
         BaseOptions.initialize(self)
@@ -19,5 +17,5 @@ class TestOptions(BaseOptions):
         self.parser.add_argument("--export_onnx", type=str, help="export ONNX model to a given file")
         self.parser.add_argument("--engine", type=str, help="run serialized TRT engine")
         self.parser.add_argument("--onnx", type=str, help="run ONNX model via TRT")
-        self.parser.add_argument("--crop_720", type=crop_bool, default=True, help="whether output video_frames are cropped to 720, matters when have a video smaller than 1280x720")       
+        self.parser.add_argument("--dont_crop_720", action="store_false" help="add for output video_frames not be cropped to 720, matters when have a video smaller than 1280x720")       
         self.isTrain = False
