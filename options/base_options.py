@@ -39,7 +39,7 @@ class BaseOptions():
         self.parser.add_argument('--heat_seeking_lvl', default=0, type=int, help='amount of camera work to follow the action')
         self.parser.add_argument('--pstart', default=1, type=int, help='starting epoch for progress videos')
         self.parser.add_argument('--pstop', default=1, type=int, help='stopping epoch for progress videos')
-        self.parser.add_argument('--extra_output_dir', default='', type=string, help='if want video to go into subdirectory of output')
+        self.parser.add_argument('--extra_output_dir', default='', type=str, help='if want video to go into subdirectory of output')
 
         # for setting inputs
         self.parser.add_argument('--dataroot', type=str, default='./datasets/cityscapes/') 
