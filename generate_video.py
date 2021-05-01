@@ -29,7 +29,10 @@ data_loader = CreateDataLoader(opt)
 dataset = data_loader.load_data()
 
 # this directory will contain the generated videos
-output_dir = os.path.join(opt.checkpoints_dir, opt.name, 'output')
+if opt.extra_output_dir != '':  
+    output_dir = os.path.join(opt.checkpoints_dir, opt.name, 'output', opt.extra_output_dir)
+else:
+    output_dir = os.path.join(opt.checkpoints_dir, opt.name, 'output')
 if not os.path.isdir(output_dir):
     os.mkdir(output_dir)
 
